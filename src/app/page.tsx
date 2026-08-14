@@ -1,5 +1,6 @@
 import { Nav, PlateMark } from "@/components/nav";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { ScrollProgress, CountUp, Magnetic, Parallax } from "@/components/animations";
 import { Leaf } from "@/components/leaf";
 import { Founders } from "@/components/founders";
 import { DonateSection } from "@/components/donate-section";
@@ -9,6 +10,7 @@ import { SITE } from "@/lib/config";
 export default function Home() {
   return (
     <div id="top" className="relative overflow-hidden">
+      <ScrollProgress />
       <Nav />
       <Hero />
       <Marquee />
@@ -27,11 +29,11 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-20">
       {/* ambient gradient blobs */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <Parallax distance={70} className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-[#f7b98a]/40 blur-3xl" />
         <div className="absolute top-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-[#f59331]/25 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[#e8622a]/15 blur-3xl" />
-      </div>
+      </Parallax>
 
       <Leaf className="pointer-events-none absolute right-8 top-32 hidden w-40 text-[#e8622a]/25 rotate-[18deg] animate-float md:block [--r:18deg]" />
       <Leaf className="pointer-events-none absolute left-6 bottom-24 hidden w-32 text-[#f59331]/25 -rotate-[24deg] animate-float md:block [--r:-24deg]" />
@@ -65,12 +67,14 @@ function Hero() {
 
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#donate"
-                className="rounded-full bg-[#e8622a] px-8 py-4 text-center font-semibold text-white shadow-[0_14px_40px_rgba(232,98,42,0.4)] transition hover:bg-[#d4531e] hover:-translate-y-0.5"
-              >
-                Donate now
-              </a>
+              <Magnetic>
+                <a
+                  href="#donate"
+                  className="inline-block rounded-full bg-[#e8622a] px-8 py-4 text-center font-semibold text-white shadow-[0_14px_40px_rgba(232,98,42,0.4)] transition hover:bg-[#d4531e] hover:-translate-y-0.5"
+                >
+                  Donate now
+                </a>
+              </Magnetic>
               <a
                 href="#volunteer"
                 className="rounded-full border-2 border-[#e0cdb6] bg-white/50 px-8 py-4 text-center font-semibold text-[#3a3128] backdrop-blur transition hover:border-[#e8622a] hover:text-[#c14a17]"
@@ -83,13 +87,19 @@ function Hero() {
           <Reveal delay={0.32}>
             <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4">
               {[
-                ["3×", "food value per $1"],
-                ["100%", "community-driven"],
-                ["YYC", "made in Calgary"],
-              ].map(([big, small]) => (
-                <div key={small}>
-                  <div className="text-3xl font-extrabold text-[#1c1512]">{big}</div>
-                  <div className="text-sm text-[#6f5d4c]">{small}</div>
+                { value: 3, suffix: "×", small: "food value per $1" },
+                { value: 100, suffix: "%", small: "community-driven" },
+                { text: "YYC", small: "made in Calgary" },
+              ].map((s) => (
+                <div key={s.small}>
+                  <div className="text-3xl font-extrabold text-[#1c1512]">
+                    {s.text ? (
+                      s.text
+                    ) : (
+                      <CountUp value={s.value!} suffix={s.suffix} />
+                    )}
+                  </div>
+                  <div className="text-sm text-[#6f5d4c]">{s.small}</div>
                 </div>
               ))}
             </div>

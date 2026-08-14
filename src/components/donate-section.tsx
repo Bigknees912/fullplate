@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { DONATION_TIERS, MIN_DONATION, MAX_DONATION } from "@/lib/config";
 import { Reveal } from "./motion";
+import { Magnetic } from "./animations";
 
 export function DonateSection() {
   const [selected, setSelected] = useState<number | "custom">(50);
@@ -157,13 +158,15 @@ export function DonateSection() {
 
               {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
-              <button
-                onClick={donate}
-                disabled={loading}
-                className="mt-6 w-full rounded-xl bg-[#e8622a] px-6 py-4 font-semibold text-white shadow-[0_10px_30px_rgba(232,98,42,0.35)] transition hover:bg-[#d4531e] hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0"
-              >
-                {loading ? "Redirecting to secure checkout…" : "Donate securely"}
-              </button>
+              <Magnetic strength={0.25} className="mt-6 block w-full">
+                <button
+                  onClick={donate}
+                  disabled={loading}
+                  className="w-full rounded-xl bg-[#e8622a] px-6 py-4 font-semibold text-white shadow-[0_10px_30px_rgba(232,98,42,0.35)] transition hover:bg-[#d4531e] hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0"
+                >
+                  {loading ? "Redirecting to secure checkout…" : "Donate securely"}
+                </button>
+              </Magnetic>
 
               <p className="mt-4 text-center text-xs text-[#7a6653]">
                 Payments handled by Stripe. Currently in test mode while our nonprofit
