@@ -57,7 +57,7 @@ export default async function SuccessPage({
             <>Your donation is on its way to feeding Calgary families.</>
           )}
         </p>
-        <p className="mt-3 text-[#8a7663]">
+        <p className="mt-3 text-[#6f5d4c]">
           A thank-you email and receipt are on the way to your inbox.
         </p>
         <Link

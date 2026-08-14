@@ -89,7 +89,7 @@ function Hero() {
               ].map(([big, small]) => (
                 <div key={small}>
                   <div className="text-3xl font-extrabold text-[#1c1512]">{big}</div>
-                  <div className="text-sm text-[#8a7663]">{small}</div>
+                  <div className="text-sm text-[#6f5d4c]">{small}</div>
                 </div>
               ))}
             </div>
@@ -221,8 +221,11 @@ function Partnership() {
                 ever could alone.
               </p>
             </div>
-            <div className="flex h-24 w-24 flex-none items-center justify-center rounded-2xl bg-[#fff3ea] text-4xl">
-              🤝
+            <div className="flex h-24 w-24 flex-none items-center justify-center rounded-2xl bg-[#fff3ea] text-[#e8622a]">
+              <svg viewBox="0 0 24 24" className="h-11 w-11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 21c-4.5-2.6-8-5.8-8-9.6A4.4 4.4 0 0 1 12 8.2 4.4 4.4 0 0 1 20 11.4c0 3.8-3.5 7-8 9.6Z" />
+                <path d="M12 8.2V11" />
+              </svg>
             </div>
           </div>
         </Reveal>
@@ -244,7 +247,7 @@ function Footer() {
               </span>
             </div>
             <p className="mt-4 text-[#5a4d40]">{SITE.tagline}</p>
-            <p className="mt-2 text-sm text-[#8a7663]">{SITE.city}</p>
+            <p className="mt-2 text-sm text-[#6f5d4c]">{SITE.city}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-10">
@@ -272,7 +275,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-[#e0d1bd] pt-6 text-sm text-[#8a7663] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-2 border-t border-[#e0d1bd] pt-6 text-sm text-[#6f5d4c] sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Full Plate YYC. Feeding Calgary, together.</span>
           <span>Donations currently in test mode while registration is finalized.</span>
         </div>

@@ -37,20 +37,25 @@ export default function AdminLogin() {
           <div className="text-2xl font-extrabold tracking-tight text-[#1c1512]">
             Full Plate <span className="text-[#E8622A]">YYC</span>
           </div>
-          <p className="text-sm text-[#8a7663] mt-1">Admin dashboard</p>
+          <p className="text-sm text-[#6f5d4c] mt-1">Admin dashboard</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(200,90,30,0.10)] p-8">
           {status === "sent" ? (
             <div className="text-center py-4">
-              <div className="text-4xl mb-3">✉️</div>
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff3ea] text-[#e8622a]">
+                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </div>
               <h1 className="text-lg font-bold text-[#1c1512]">Link sent</h1>
               <p className="text-sm text-[#6a5d4f] mt-2">{message}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
               <h1 className="text-lg font-bold text-[#1c1512] mb-1">Sign in</h1>
-              <p className="text-sm text-[#8a7663] mb-6">
+              <p className="text-sm text-[#6f5d4c] mb-6">
                 Enter your admin email to receive a magic link.
               </p>
               <label className="block text-sm font-medium text-[#4a4038] mb-2">Email</label>
@@ -76,7 +81,7 @@ export default function AdminLogin() {
           )}
         </div>
 
-        <p className="text-center text-xs text-[#a89684] mt-6">
+        <p className="text-center text-xs text-[#7a6653] mt-6">
           Only approved administrators can access this area.
         </p>
       </div>

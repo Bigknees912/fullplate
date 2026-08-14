@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -16,13 +16,14 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
+  const reduced = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
+      initial={reduced ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: easeOut }}
+      transition={reduced ? { duration: 0 } : { duration: 0.7, delay, ease: easeOut }}
     >
       {children}
     </motion.div>
@@ -48,6 +49,8 @@ export function Stagger({
   children: ReactNode;
   className?: string;
 }) {
+  const reduced = useReducedMotion();
+  if (reduced) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -68,6 +71,8 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const reduced = useReducedMotion();
+  if (reduced) return <div className={className}>{children}</div>;
   return (
     <motion.div className={className} variants={item}>
       {children}

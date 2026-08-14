@@ -66,7 +66,7 @@ export function Founders() {
         </div>
 
         <Reveal delay={0.15}>
-          <p className="mt-10 text-center text-sm text-[#a89684]">
+          <p className="mt-10 text-center text-sm text-[#7a6653]">
             Drop real portraits at <code className="text-[#c14a17]">/public/founders/michael.jpg</code> and{" "}
             <code className="text-[#c14a17]">/public/founders/mikko.jpg</code> to replace the
             initials.

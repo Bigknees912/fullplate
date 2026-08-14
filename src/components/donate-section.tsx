@@ -73,7 +73,7 @@ export function DonateSection() {
               </p>
 
               <div className="mt-8 rounded-2xl border border-[#eaddcc] bg-white/60 p-5">
-                <div className="text-sm text-[#8a7663]">If you give</div>
+                <div className="text-sm text-[#6f5d4c]">If you give</div>
                 <div className="mt-1 flex items-baseline gap-3">
                   <span className="text-3xl font-extrabold text-[#1c1512]">
                     ${Number.isFinite(amount) && amount > 0 ? amount.toLocaleString() : "0"}
@@ -82,7 +82,7 @@ export function DonateSection() {
                   <span className="text-3xl font-extrabold text-[#e8622a]">
                     ${impact ? impact.toLocaleString() : "0"}
                   </span>
-                  <span className="text-sm text-[#8a7663]">in food value</span>
+                  <span className="text-sm text-[#6f5d4c]">in food value</span>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ export function DonateSection() {
                       }`}
                     >
                       <div className="text-lg font-bold text-[#1c1512]">{t.label}</div>
-                      <div className="text-xs text-[#8a7663]">{t.blurb}</div>
+                      <div className="text-xs text-[#6f5d4c]">{t.blurb}</div>
                     </button>
                   );
                 })}
@@ -132,7 +132,7 @@ export function DonateSection() {
 
               {selected === "custom" && (
                 <div className="mt-3 relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8a7663]">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6f5d4c]">$</span>
                   <input
                     type="number"
                     min={MIN_DONATION}
@@ -146,7 +146,7 @@ export function DonateSection() {
               )}
 
               <label className="mt-5 block text-sm font-semibold text-[#4a4038]">
-                Name <span className="font-normal text-[#a89684]">(optional — for the wall of thanks)</span>
+                Name <span className="font-normal text-[#7a6653]">(optional — for the wall of thanks)</span>
               </label>
               <input
                 value={name}
@@ -165,7 +165,7 @@ export function DonateSection() {
                 {loading ? "Redirecting to secure checkout…" : "Donate securely"}
               </button>
 
-              <p className="mt-4 text-center text-xs text-[#a89684]">
+              <p className="mt-4 text-center text-xs text-[#7a6653]">
                 Payments handled by Stripe. Currently in test mode while our nonprofit
                 registration is finalized.
               </p>

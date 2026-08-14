@@ -33,6 +33,23 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Tailwind v4 preflight sets native cursor:default on buttons; restore pointer
+   for anything actually clickable (keyboard focus rings are left intact). */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+label[for],
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Visible keyboard focus on brand controls */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #e8622a;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
 /* Soft brand scrollbar */
 ::selection {
   background: #f7c9ac;
