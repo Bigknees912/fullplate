@@ -101,6 +101,70 @@ button:focus-visible {
   animation: shimmer 4.5s linear infinite;
 }
 
+/* ---------- Calgary scroll-map hero ---------- */
+.maphero { position: relative; height: 340vh; }
+.maphero .sticky-stage {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  background: radial-gradient(120% 90% at 70% 15%, #fbeede 0%, #f7f1e8 45%, #f0e4d2 100%);
+}
+.maphero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.maphero .overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center;
+}
+.maphero .copy { padding: 72px 6vw 0; max-width: 42rem; }
+.maphero .copy a { pointer-events: auto; }
+.maphero .eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; border: 1px solid #e9d6bf;
+  background: rgba(255, 255, 255, 0.65); color: #c14a17; font-weight: 500; font-size: 13px;
+  padding: 7px 15px; border-radius: 999px; backdrop-filter: blur(4px);
+}
+.maphero .need-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #d94a5c;
+  box-shadow: 0 0 0 0 rgba(217, 74, 92, 0.5); animation: need-ping 1.8s infinite;
+}
+@keyframes need-ping {
+  0% { box-shadow: 0 0 0 0 rgba(217, 74, 92, 0.5); }
+  70% { box-shadow: 0 0 0 9px rgba(217, 74, 92, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 74, 92, 0); }
+}
+.maphero .headlines { position: relative; font-size: clamp(28px, 3.7vw, 46px); height: 2.6em; margin: 22px 0 0; }
+.maphero .headlines h1 {
+  position: absolute; inset: 0; margin: 0; font-family: var(--font-display), Georgia, serif;
+  font-weight: 700; font-size: 1em; line-height: 1.08; letter-spacing: -0.02em; color: #1c1512;
+  opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; text-wrap: balance;
+}
+.maphero .headlines h1.on { opacity: 1; transform: none; }
+.maphero .headlines h1 .accent { color: #e8622a; }
+.maphero .headlines h1 .need { color: #d94a5c; }
+.maphero .sub { margin-top: 16px; font-size: clamp(15px, 2vw, 18px); line-height: 1.55; color: #5a4d40; max-width: 30rem; min-height: 3.4em; }
+.maphero .hero-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 14px; }
+.maphero .hud { margin-top: 28px; display: flex; gap: 30px; }
+.maphero .hud .n { font-family: var(--font-display), Georgia, serif; font-weight: 700; font-size: clamp(24px, 3.2vw, 34px); color: #1c1512; font-variant-numeric: tabular-nums; line-height: 1; }
+.maphero .hud .k { font-size: 12px; color: #6f5d4c; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+.maphero .legend {
+  position: absolute; right: 24px; top: 96px; display: flex; flex-direction: column; gap: 9px;
+  background: rgba(255, 255, 255, 0.55); border: 1px solid rgba(233, 214, 191, 0.8); border-radius: 14px;
+  padding: 12px 14px; backdrop-filter: blur(6px); font-size: 12.5px; color: #5a4d40;
+}
+.maphero .legend .li { display: flex; align-items: center; gap: 9px; }
+.maphero .legend .sw { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.maphero .hint {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; flex-direction: column;
+  align-items: center; gap: 7px; color: #6f5d4c; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.maphero .hint svg { animation: hint-bob 1.7s ease-in-out infinite; }
+@keyframes hint-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+@media (max-width: 900px) {
+  .maphero .overlay { grid-template-columns: 1fr; align-items: flex-end; }
+  .maphero .copy { padding: 0 24px 9vh; }
+  .maphero .hint { display: none; }
+}
+@media (max-width: 640px) { .maphero .legend { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .maphero .need-dot, .maphero .hint svg { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-marquee,

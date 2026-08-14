@@ -1,6 +1,7 @@
 import { Nav, PlateMark } from "@/components/nav";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
-import { ScrollProgress, CountUp, Magnetic, Parallax } from "@/components/animations";
+import { ScrollProgress } from "@/components/animations";
+import { CalgaryHero } from "@/components/calgary-hero";
 import { Leaf } from "@/components/leaf";
 import { Founders } from "@/components/founders";
 import { DonateSection } from "@/components/donate-section";
@@ -9,10 +10,15 @@ import { SITE } from "@/lib/config";
 
 export default function Home() {
   return (
-    <div id="top" className="relative overflow-hidden">
+    <div id="top" className="relative overflow-x-clip">
       <ScrollProgress />
       <Nav />
-      <Hero />
+      <CalgaryHero />
+      <p className="mx-auto max-w-3xl px-6 pb-6 text-center text-xs leading-relaxed text-[#8a7a68]">
+        Neighbourhood markers on the map above (Bowness, Falconridge, Marlborough, Forest Lawn,
+        Dover, Ogden) are shown illustratively to picture our city-wide coverage — they are not
+        precise boundaries or official statistics.
+      </p>
       <Marquee />
       <Impact />
       <Mission />
@@ -22,91 +28,6 @@ export default function Home() {
       <VolunteerForm />
       <Footer />
     </div>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20">
-      {/* ambient gradient blobs */}
-      <Parallax distance={70} className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-[#f7b98a]/40 blur-3xl" />
-        <div className="absolute top-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-[#f59331]/25 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[#e8622a]/15 blur-3xl" />
-      </Parallax>
-
-      <Leaf className="pointer-events-none absolute right-8 top-32 hidden w-40 text-[#e8622a]/25 rotate-[18deg] animate-float md:block [--r:18deg]" />
-      <Leaf className="pointer-events-none absolute left-6 bottom-24 hidden w-32 text-[#f59331]/25 -rotate-[24deg] animate-float md:block [--r:-24deg]" />
-
-      <div className="mx-auto max-w-6xl px-6 w-full">
-        <div className="max-w-3xl">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#e9d6bf] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#c14a17] backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#e8622a] animate-pulse" />
-              A Calgary nonprofit, in partnership with the Calgary Food Bank
-            </span>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] text-[#1c1512]">
-              We turn{" "}
-              <span className="relative whitespace-nowrap">
-                <span className="text-shimmer">every $1</span>
-              </span>
-              <br />
-              into <span className="text-[#e8622a]">3× the food.</span>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-xl text-lg sm:text-xl text-[#5a4d40] leading-relaxed">
-              Full Plate YYC feeds Calgary. Your donation stretches three times as far,
-              putting real meals on the tables of families who need them most.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-col sm:flex-row gap-4">
-              <Magnetic>
-                <a
-                  href="#donate"
-                  className="inline-block rounded-full bg-[#e8622a] px-8 py-4 text-center font-semibold text-white shadow-[0_14px_40px_rgba(232,98,42,0.4)] transition hover:bg-[#d4531e] hover:-translate-y-0.5"
-                >
-                  Donate now
-                </a>
-              </Magnetic>
-              <a
-                href="#volunteer"
-                className="rounded-full border-2 border-[#e0cdb6] bg-white/50 px-8 py-4 text-center font-semibold text-[#3a3128] backdrop-blur transition hover:border-[#e8622a] hover:text-[#c14a17]"
-              >
-                Become a volunteer
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.32}>
-            <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4">
-              {[
-                { value: 3, suffix: "×", small: "food value per $1" },
-                { value: 100, suffix: "%", small: "community-driven" },
-                { text: "YYC", small: "made in Calgary" },
-              ].map((s) => (
-                <div key={s.small}>
-                  <div className="text-3xl font-extrabold text-[#1c1512]">
-                    {s.text ? (
-                      s.text
-                    ) : (
-                      <CountUp value={s.value!} suffix={s.suffix} />
-                    )}
-                  </div>
-                  <div className="text-sm text-[#6f5d4c]">{s.small}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
   );
 }
 
